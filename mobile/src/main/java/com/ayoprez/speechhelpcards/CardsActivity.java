@@ -120,6 +120,7 @@ public class CardsActivity extends AppCompatActivity {
         }
     }
 
+
     @OnClick(R.id.more)
     public void more() {
         text = (TextView) flingContainer.getSelectedView().findViewById(R.id.cardText);
