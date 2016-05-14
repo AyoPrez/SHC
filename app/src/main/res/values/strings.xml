@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Speech Help Cards</string>
+    <string name="action_settings">Settings</string>
+    <string name="about_title">About the app</string>
+    <string name="version">Version</string>
+    <string name="info">Info</string>
+    <string name="info_message">App made fondly by AyoPrez. \n\n
+                                For more information, visit the website http://www.ayoprez.com</string>
+    <string name="versionName">1.0</string>
+
+    <!-- NewCards-->
+    <string name="newcards_title">Add new cards</string>
+    <string name="addNewCard_button">Add new card</string>
+    <string name="saveNewCard_button">Save cards</string>
+    <string name="newcards_default_text">Write here the content of the card</string>
+
+    <!-- Preferences -->
+    <string name="legal_title">Legal and contact</string>
+    <string name="terms">Terms and conditions</string>
+    <string name="contact">Contact</string>
+    <string name="made_in">Made en Germany</string>
+    <string name="more_of_Ayoprez">More apps of AyoPrez</string>
+    <string name="developer">Developer</string>
+    <string name="feedback">Send some feedback</string>
+    <string name="rateAtGoogle">Rate the app</string>
+    <string name="marketId">com.ayoprez.speechhelpcards</string>
+    <string name="LangId">com.ayoprez.deilylang</string>
+    <string name="QuoteId">com.ayoprez.deilyquote</string>
+    <string name="rateError">Could not open the Play Store, please install it and try again.</string>
+    <string name="appName_deilylang">DeilyLang</string>
+    <string name="appName_deilyquote">DeilyQuote</string>
+    <string name="feedback_mail_subject">Feedback SHC</string>
+    <string name="feedback_mail_dialog_title">Send feedback</string>
+    <string name="feedback_mail_error">There are no email clients installed</string>
+
+    <!-- Terms and Conditions-->
+    <string name="terms_title">Terms and Conditions (\"Terms\")</string>
+    <string name="terms_info">Last updated:  10th August, 2015. \n\nPlease read these Terms and Conditions (\"Terms\", \"Terms and Conditions\") carefully before using the Speech Help Cards application (the \"App\") developed by Ayoze Pérez Rodríguez  (\"i\", \"we\", “my” or \"our\"), with national ID number 42217341J, address Teichgraben, 4, 07743, Jena, Germany, and email info@ayoprez.com. \n\nYour access to and use of the App is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all users who access or use the App. \n\nBy accessing or using the App you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access or use the App. </string>
+    <string name="general_rules_title">General rules</string>
+    <string name="general_rules">The App is available for you own, personal use. The must not be used for commercial purpose whatsoever or for any illegal or unauthorised purpose. Using the App you must comply with all applicable Germany and international laws. \n\nAccepting this Terms you agree that, when using the App, you will comply with all the law and these Terms. \n\nAlso, you agree to not modify, adapt, translate or reverse engineer any part of the App or re-format or frame any portion of the pages comprising the App, save to the extent expressly permitted by these Terms or by the law. (And, come on, the code is in Github, do not do something unnecessary.)</string>
+    <string name="termination_title">Termination</string>
+    <string name="termination">I may terminate or suspend access to the App immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms. \n\nAll provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability. </string>
+    <string name="links_title">Links To Other Web Sites</string>
+    <string name="links">The App may contain links to third party web sites, application or services that are not owned or controlled by Ayoze Pérez Rodríguez. \n\nAyoze Pérez Rodríguez has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites, application or services. You further acknowledge and agree that Ayoze Pérez Rodríguez shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites, application or services. \n\nI strongly advise you to read the terms and conditions and privacy policies of any third party web sites, application or services that you visit.</string>
+    <string name="thirdParty_title">Third party content</string>
+    <string name="thirdParty">The App contain different library that make the App works. This is a list of this libraries. \n\n-Android SDK \n-Swipecards \n-Butterknife \n-Crashlytics \n\n The user can read the terms of each library in its respective website. \n\n</string>
+    <string name="personalData_title">Personal data</string>
+    <string name="personalData">The App do not require any kind of registration to be used, and never would be necessary that the user introduce any kind of personal data. \n\n Using Crashlytics and Answers (both from Fabric, property of Twitter Inc.) the App collect anonymous data with the purpose of find errors and usage patterns to better development of future versions. Any kind of personal data will be collected by the App.  </string>
+    <string name="copyright_title">Copyright</string>
+    <string name="copyright">The App and all the content in it (images, texts, icons) belong to Ayoze Pérez Rodríguez. Any use of them will require a citation of the author and origin. Don\'t be thoughtless.</string>
+    <string name="governing_title">Governing Law</string>
+    <string name="governing">These Terms shall be governed and construed in accordance with the laws of Germany, without regard to its conflict of law provisions. \n\n Our failure to enforce any right or provision of these Terms will not be considered a waiver of those  rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding the App, and supersede and replace any prior agreements we might have between us regarding the App.</string>
+    <string name="changes_title">Changes</string>
+    <string name="changes">We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material I will notify the use with the other changes to the application through official download channels. What constitutes a material change will be determined at our sole discretion. \n\n By continuing to access or use the App after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the App. </string>
+    <string name="contact_title">Contact me</string>
+    <string name="contact_terms">If you have any questions about these Terms, please contact me by email to info@ayoprez.com</string>
+
+</resources>

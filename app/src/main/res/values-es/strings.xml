@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Speech Help Cards</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="about_title">Sobre la aplicación</string>
+    <string name="version">Versión</string>
+    <string name="info">Info</string>
+    <string name="info_message">Aplicación realizada con cariño por AyoPrez. \n\n
+                                Para más información, acuda a la web </string>
+    <string name="versionName">1.0</string>
+
+    <!-- NewCards-->
+    <string name="newcards_title">Añade nuevas tarjetas</string>
+    <string name="addNewCard_button">Añadir nueva tarjeta</string>
+    <string name="saveNewCard_button">Guardar tarjetas</string>
+    <string name="newcards_default_text">Escribe aquí el contenido de la tarjeta</string>
+
+
+    <!-- Preferences -->
+    <string name="legal_title">Términos de uso y contacto</string>
+    <string name="terms">Términos y condiciones</string>
+    <string name="contact">Contacto</string>
+    <string name="contact_message">Si desea ponerse en contacto conmigo puede hacerlo desde la sección de contacto de mi web. </string>
+    <string name="feedback">Envia algo de feedback</string>
+    <string name="made_in">Hecho en Alemania</string>
+    <string name="more_of_Ayoprez">Más apps de AyoPrez</string>
+    <string name="developer">Desarrollador</string>
+    <string name="rateAtGoogle">Evalúa la app</string>
+    <string name="rateError">No fue posible abrir la tienda de aplicaciones. Por favor, instalala y vuelve a intentarlo.</string>
+    <string name="feedback_mail_subject">Feedback SHC</string>
+    <string name="feedback_mail_dialog_title">Envía feedback</string>
+    <string name="feedback_mail_error">No hay clientes de correo electrónico instalados</string>
+
+    <!-- Terms and Conditions-->
+    <string name="terms_title">Términos y condiciones (\"Términos\")</string>
+    <string name="terms_info">Última actualización: 10 de agosto 2015. \n\nPor favor, lea estos términos y condiciones ("Términos", "Términos y Condiciones") cuidadosamente antes de usar la aplicación Speech Help Cards (la "App") desarrollada por Ayoze Pérez Rodríguez ("yo", "nosotros", "mi" o " nuestro "), con número de documento nacional de identidad 42217341J, dirección Teichgraben, 4, 07743, Jena, Alemania, y el correo electrónico info@ayoprez.com. \n\nSu acceso y uso de la App está condicionado a la aceptación y cumplimiento de las presentes Condiciones. Estas Condiciones se aplican a todos los usuarios que accedan o usen la aplicación. \n\nAl acceder o utilizar la App usted acepta que quedará vinculado por estas Condiciones. Si no está de acuerdo con alguna parte de los términos, entonces no puede acceder o utilizar la aplicación.</string>
+    <string name="general_rules_title">Reglas generales</string>
+    <string name="general_rules">La App está disponible para su uso personal. No debe ser utilizada con propósitos comerciales o para cualquier propósito ilegal o no autorizado. El uso de la App debe cumplir con todas las leyes aplicables tanto Alemanas como  internacionales. \n\nAceptando de las presentes Condiciones usted acepta que, al utilizar la aplicación, usted cumplirá con toda la ley y las presentes Condiciones. \n\nAdemás, usted se compromete a no modificar, adaptar, traducir o realizar ingeniería inversa de cualquier parte de la aplicación o cambiar cualquier parte de las páginas que componen la aplicación, salvo en la medida expresamente permitido por estas Condiciones o por la ley. (Y, vamos, el código está en Github, no haga algo innecesario.)</string>
+    <string name="termination_title">Terminación</string>
+    <string name="termination">Puedo dar por terminada o suspender el acceso a la App inmediatamente, sin previo aviso o responsabilidad, por cualquier motivo sin limitación. \n\nTodas las disposiciones de los Términos que por su naturaleza deberían sobrevivir a la terminación, sobrevivirán a la misma, incluyendo, sin limitación, las disposiciones de propiedad, renuncias de garantía, indemnización y limitaciones de responsabilidad.</string>
+    <string name="links_title">Enlaces a otros sitios Web Site</string>
+    <string name="links">La App puede contener enlaces a sitios web, aplicaciones o servicios de terceros que no son propiedad o están controladas por Ayoze Pérez Rodríguez. \n\nAyoze Pérez Rodríguez no tiene control, y no asume ninguna responsabilidad por el contenido, políticas de privacidad o las prácticas de sitios web, aplicaciones o servicios de terceros. Además, usted reconoce y acepta que Ayoze Pérez Rodríguez no será responsable o estará obligado, directa o indirectamente, por cualquier daño o pérdida causada o supuestamente causada por o en conexión con el uso o la credibilidad en cualquier Contenido, bienes o servicios disponibles en o a través de cualquiera de dichos sitios web, aplicaciones o servicios. \n\nLe recomiendo que lea los términos y condiciones y políticas de privacidad de cualquier sitio web, aplicaciones o servicios de terceros que usted visite.</string>
+    <string name="thirdParty_title">El contenido de terceros</string>
+    <string name="thirdParty">La App contiene diferentes librerías que hacen que la App funciona. Esta es una lista de estas librerías. \n\n-Android SDK \n-Swipecards \n-Butterknife \n-Crashlytics \n\nEl usuario puede leer las condiciones de cada una de las librerías en su respectivos sitio web.</string>
+    <string name="personalData_title">Datos personales</string>
+    <string name="personalData">La App no requiere ningún tipo de registro de usuario, y nunca será necesario que el usuario introduzca ningún tipo de datos personales. \n\nAl usar Crashlytics y Answers (ambos servicios de Fabric, propiedad de Twitter Inc.) la App recopila datos anónimos con el fin de encontrar errores y patrones de uso para un mejor desarrollo de las futuras versiones. Ningún tipo de dato de carácter personal será recogido por la aplicación.</string>
+    <string name="copyright_title">Derechos de autor</string>
+    <string name="copyright">La App y todos los contenidos de la misma (imágenes, textos, iconos) pertenecen a Ayoze Pérez Rodríguez. Cualquier uso de los mismos requerirá una citación del autor y origen. No seas desconsiderado.</string>
+    <string name="governing_title">Ley que rige</string>
+    <string name="governing">Estos Términos se regirán e interpretarán de acuerdo con las leyes de Alemania, sin consideración a su conflicto de disposiciones legales. \n\nNuestra incapacidad para hacer cumplir cualquier derecho o disposición de estas Condiciones no se considerará una renuncia a esos derechos. Si alguna disposición de estos Términos es considerada inválida o inaplicable por un tribunal, las restantes disposiciones de estas Condiciones permanecerán vigentes. Estos Términos y Condiciones constituyen el acuerdo completo entre nosotros con respecto a la aplicación, y sustituyen y reemplazan cualquier acuerdo anterior que tengamos entre nosotros con respecto a la aplicación.</string>
+    <string name="changes_title">Cambios</string>
+    <string name="changes">Me reservo el derecho de modificar o sustituir estas Condiciones en cualquier momento. De los cambios en la misma se avisará junto a los demás cambios realizados en la aplicación por medio de los canales oficiales de descarga. Lo que constituye un cambio material será determinado a nuestra discreción. \n\nAl continuar accediendo o utilizar la App después de esas revisiones, usted acepta que quedará vinculado por los términos revisados. Si no acepta los nuevos términos, por favor, deje de usar la aplicación.</string>
+    <string name="contact_title">Contáctame</string>
+    <string name="contact_terms">Si usted tiene alguna pregunta acerca de estos Términos, por favor póngase en contacto conmigo por correo electrónico a info@ayoprez.com</string>
+
+
+</resources>

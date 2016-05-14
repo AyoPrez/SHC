@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView_newcards"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:scrollbars="vertical"
+            android:layout_marginLeft="@dimen/recyclerView_margin"
+            android:layout_marginRight="@dimen/recyclerView_margin"
+            android:layout_marginTop="@dimen/recyclerView_margin"/>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/button_addNewCard"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/addNewCard_button"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:layout_marginRight="@dimen/newcards_title_margin"/>
+
+        <Button
+            android:id="@+id/button_saveNewCard"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/saveNewCard_button"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/newcards_title_margin"/>
+    </LinearLayout>
+</LinearLayout>
