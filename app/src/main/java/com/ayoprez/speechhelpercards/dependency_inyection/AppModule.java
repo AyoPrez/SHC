@@ -1,9 +1,23 @@
 package com.ayoprez.speechhelpercards.dependency_inyection;
 
 import android.app.Application;
-import android.content.res.Resources;
+import android.content.Context;
 
-import javax.annotation.Resource;
+import com.ayoprez.speechhelpercards.repository.InMemoryRepository;
+import com.ayoprez.speechhelpercards.repository.MainRepository;
+import com.ayoprez.speechhelpercards.repository.MainRepositoryImpl;
+import com.ayoprez.speechhelpercards.ui.activity.HelperCardsActivity;
+import com.ayoprez.speechhelpercards.ui.presenter.AddDeckPresenter;
+import com.ayoprez.speechhelpercards.ui.presenter.AddDeckPresenterImpl;
+import com.ayoprez.speechhelpercards.ui.presenter.HelperCardsPresenter;
+import com.ayoprez.speechhelpercards.ui.presenter.HelperCardsPresenterImpl;
+import com.ayoprez.speechhelpercards.ui.presenter.MainPresenter;
+import com.ayoprez.speechhelpercards.ui.presenter.MainPresenterImpl;
+import com.ayoprez.speechhelpercards.ui.recyclerview.add_deck_recyclerview.AddDeckItemPresenter;
+import com.ayoprez.speechhelpercards.ui.recyclerview.add_deck_recyclerview.AddDeckItemPresenterImpl;
+import com.ayoprez.speechhelpercards.ui.recyclerview.main_recyclerview.ItemPresenter;
+import com.ayoprez.speechhelpercards.ui.recyclerview.main_recyclerview.ItemPresenterImpl;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -14,24 +28,52 @@ import dagger.Provides;
  */
 @Module
 public class AppModule {
-    private static final String TAG = AppModule.class.getSimpleName();
 
-    SHCApplication app;
+    private Application application;
 
-    public AppModule(SHCApplication application){
-        app = application;
+    public AppModule(Application application){
+        this.application = application;
     }
 
     @Provides
     @Singleton
-    protected Application provideApplication(){
-        return app;
+    public Context provideContext(){
+        return application;
     }
 
     @Provides
     @Singleton
-    protected Resources provideResources(){
-        return app.getResources();
+    public MainRepository provideMainRepository(){
+        return new MainRepositoryImpl();
     }
 
+    @Provides
+    @Singleton
+    public MainPresenter provideMainPresenter(MainRepository repository){
+        return new MainPresenterImpl(repository);
+    }
+
+    @Provides
+    @Singleton
+    public ItemPresenter provideAdapterPresenter(MainRepository repository){
+        return new ItemPresenterImpl(repository);
+    }
+
+    @Provides
+    @Singleton
+    public AddDeckPresenter provideAddDeskPresenter(MainRepository repository){
+        return new AddDeckPresenterImpl(repository);
+    }
+
+    @Provides
+    @Singleton
+    public AddDeckItemPresenter provideAddDeckItemAdapterPresenter(){
+        return new AddDeckItemPresenterImpl();
+    }
+
+    @Provides
+    @Singleton
+    public HelperCardsPresenter provideHelperCardsPresenter(MainRepository repository){
+        return new HelperCardsPresenterImpl(repository);
+    }
 }

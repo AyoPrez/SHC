@@ -54,5 +54,7 @@
     <string name="changes">We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material I will notify the use with the other changes to the application through official download channels. What constitutes a material change will be determined at our sole discretion. \n\n By continuing to access or use the App after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the App. </string>
     <string name="contact_title">Contact me</string>
     <string name="contact_terms">If you have any questions about these Terms, please contact me by email to info@ayoprez.com</string>
+    <string name="addDeck_hint">Write here your note</string>
+    <string name="save_deck">Save</string>
 
 </resources>

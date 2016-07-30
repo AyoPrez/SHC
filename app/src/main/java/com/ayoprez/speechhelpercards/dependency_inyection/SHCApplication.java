@@ -1,26 +1,24 @@
 package com.ayoprez.speechhelpercards.dependency_inyection;
 
 import android.app.Application;
-import android.content.Context;
+
+import org.greenrobot.greendao.database.Database;
 
 /**
  * Created by ayo on 14.05.16.
  */
 public class SHCApplication extends Application {
-    private static final String TAG = SHCApplication.class.getSimpleName();
 
-    private static AppComponent appComponent;
-    private static SHCApplication instance;
+
+    public static final boolean ENCRYPTED = true;
+    private AppComponent appComponent;
+//    private DaoSession daoSession;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        instance = this;
         initAppComponents();
-    }
-
-    public static SHCApplication get(Context context) {
-        return (SHCApplication) context.getApplicationContext();
+//        initGreenDao();
     }
 
     public AppComponent getAppComponent() {
@@ -33,10 +31,13 @@ public class SHCApplication extends Application {
                 .build();
     }
 
-    /**
-     * Visible only for testing purposes.
-     */
-    public void setTestComponent(AppComponent testingComponent) {
-        appComponent = testingComponent;
-    }
+//    public void initGreenDao() {
+//        DevOpenHelper helper = new DevOpenHelper(this, ENCRYPTED ? "notes-db-encrypted" : "notes-db");
+//        Database db = ENCRYPTED ? helper.getEncryptedWritableDb("super-secret") : helper.getWritableDb();
+//        daoSession = new DaoMaster(db).newSession();
+//    }
+//
+//    public DaoSession getDaoSession() {
+//        return daoSession;
+//    }
 }

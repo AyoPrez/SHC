@@ -3,7 +3,7 @@
     android:id="@+id/item_recyclerView"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="@dimen/gridview_items_padding"
     android:background="@color/dark_white">
 
@@ -15,9 +15,18 @@
         android:src="@drawable/cards_icon"/>
 
     <TextView
+        android:id="@+id/textView_NumberRecyclerItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="@dimen/recyclerView_margin"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
         android:id="@+id/textView_recyclerItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_margin="@dimen/recyclerView_margin"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

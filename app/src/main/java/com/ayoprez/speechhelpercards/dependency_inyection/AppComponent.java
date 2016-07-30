@@ -1,9 +1,10 @@
 package com.ayoprez.speechhelpercards.dependency_inyection;
 
-import android.app.Application;
-
-import com.ayoprez.speechhelpercards.ui.activity.MainActivityComponent;
-import com.ayoprez.speechhelpercards.ui.activity.MainActivityModule;
+import com.ayoprez.speechhelpercards.ui.activity.AddDeckActivity;
+import com.ayoprez.speechhelpercards.ui.activity.HelperCardsActivity;
+import com.ayoprez.speechhelpercards.ui.activity.MainActivity;
+import com.ayoprez.speechhelpercards.ui.recyclerview.add_deck_recyclerview.AddDeckAdapter;
+import com.ayoprez.speechhelpercards.ui.recyclerview.main_recyclerview.MainRecyclerViewAdapter;
 
 import javax.inject.Singleton;
 
@@ -15,7 +16,10 @@ import dagger.Component;
 @Singleton
 @Component(modules = {AppModule.class})
 public interface AppComponent {
-
-    MainActivityComponent plus(MainActivityModule module);
-    Application application();
+    void inject(SHCApplication application);
+    void inject(MainActivity activity);
+    void inject(MainRecyclerViewAdapter adapter);
+    void inject(AddDeckActivity activity);
+    void inject(AddDeckAdapter adapter);
+    void inject(HelperCardsActivity activity);
 }

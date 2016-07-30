@@ -12,12 +12,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView_main"
+        <!-- Loading View -->
+        <ProgressBar
+            android:id="@+id/loadingView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+
+        <!-- Content View -->
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/contentView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            android:layout_margin="@dimen/recyclerView_margin"/>
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
@@ -29,6 +43,13 @@
             app:elevation="6dp"
             app:pressedTranslationZ="12dp"
             app:backgroundTint="@color/statusBar"/>
+
+        <!-- Error view -->
+        <TextView
+            android:id="@+id/errorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
 
     </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>

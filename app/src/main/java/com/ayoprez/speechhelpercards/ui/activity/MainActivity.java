@@ -2,50 +2,114 @@ package com.ayoprez.speechhelpercards.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ayoprez.speechhelpercards.R;
+import com.ayoprez.speechhelpercards.dependency_inyection.SHCApplication;
+import com.ayoprez.speechhelpercards.model.Cards;
+import com.ayoprez.speechhelpercards.model.Deck;
+import com.ayoprez.speechhelpercards.ui.presenter.MainPresenter;
+import com.ayoprez.speechhelpercards.ui.recyclerview.main_recyclerview.MainRecyclerViewAdapter;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class MainActivity extends BaseActivity implements MainView {
+    private static final String TAG = MainActivity.class.getSimpleName();
+
+    @BindView(R.id.fab)
+    FloatingActionButton floatingActionButton;
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+
+    @Inject
+    MainPresenter mainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initMainActivityComponents();
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        initFloatingButton();
+    }
+
+    private Cards setCards(int id, String text){
+        Cards cards = new Cards();
+        cards.setText(text);
+        cards.setId(id);
+        return cards;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mainPresenter.setView(this);
+        mainPresenter.initDeskRecyclerView();
+    }
+
+    public void initMainActivityComponents(){
+        ((SHCApplication)getApplication()).getAppComponent().inject(this);
+    }
+
+    @Override
+    public void initFloatingButton(){
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                changeActivity(AddDeckActivity.class);
             }
         });
     }
 
     @Override
+    public int getDeckId() {
+        //Return the id of the selected deck
+        return 0;
+    }
+
+    @Override
+    public void loadDeskRecyclerView(ArrayList<Deck> decksList) {
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setAdapter(new MainRecyclerViewAdapter(decksList));
+    }
+
+    @Override
+    public void showLoading() {
+        Log.i(TAG, "Loading...");
+    }
+
+    @Override
+    public void showError() {
+        Log.e(TAG, "Error...");
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+//            changeActivity();
             return true;
         }
 

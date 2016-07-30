@@ -4,6 +4,7 @@
     package="com.ayoprez.speechhelpercards">
 
     <application
+        android:name=".dependency_inyection.SHCApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon_launcher"
         android:label="@string/app_name"
@@ -11,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:theme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.ayoprez.speechhelpercards.ui.activity.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -20,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.activity.AddDeckActivity"
+            android:label="@string/app_name"/>
+        <activity
+            android:name=".ui.activity.HelperCardsActivity"
+            android:label="@string/app_name"/>
         <!--<activity-->
             <!--android:name=".CardsActivity"-->
             <!--android:label="@string/app_name"-->

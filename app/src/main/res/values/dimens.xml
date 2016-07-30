@@ -34,5 +34,6 @@
     <dimen name="textSize_moreApp_appname">20sp</dimen>
     <dimen name="legal_titles_margin">10dp</dimen>
     <dimen name="legal_content_lines_spacing">2dp</dimen>
+    <dimen name="main_recyclerview_margin">10dp</dimen>
 
 </resources>

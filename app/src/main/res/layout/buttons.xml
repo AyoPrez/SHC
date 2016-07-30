@@ -28,7 +28,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/more"
+            android:id="@+id/moreButton"
             android:layout_alignParentTop="true"
             android:layout_margin="@dimen/buttons_margin"
             android:text="+"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/less"
+            android:id="@+id/lessButton"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/buttons_margin"
             android:text="-"
