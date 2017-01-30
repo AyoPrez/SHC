@@ -2,23 +2,26 @@ package com.ayoprez.speechhelpercards.dependency_inyection;
 
 import android.app.Application;
 
-import org.greenrobot.greendao.database.Database;
+import com.ayoprez.speechhelpercards.R;
+import com.facebook.stetho.Stetho;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 /**
  * Created by ayo on 14.05.16.
  */
 public class SHCApplication extends Application {
 
-
-    public static final boolean ENCRYPTED = true;
     private AppComponent appComponent;
-//    private DaoSession daoSession;
 
     @Override
     public void onCreate() {
         super.onCreate();
         initAppComponents();
-//        initGreenDao();
+        initRealm();
+
+        Stetho.initializeWithDefaults(this);
     }
 
     public AppComponent getAppComponent() {
@@ -31,13 +34,14 @@ public class SHCApplication extends Application {
                 .build();
     }
 
-//    public void initGreenDao() {
-//        DevOpenHelper helper = new DevOpenHelper(this, ENCRYPTED ? "notes-db-encrypted" : "notes-db");
-//        Database db = ENCRYPTED ? helper.getEncryptedWritableDb("super-secret") : helper.getWritableDb();
-//        daoSession = new DaoMaster(db).newSession();
-//    }
-//
-//    public DaoSession getDaoSession() {
-//        return daoSession;
-//    }
+    public void initRealm(){
+        Realm.init(this);
+
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
+                .name("shc")
+                .schemaVersion(R.string.app_version)
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(realmConfiguration);
+    }
 }

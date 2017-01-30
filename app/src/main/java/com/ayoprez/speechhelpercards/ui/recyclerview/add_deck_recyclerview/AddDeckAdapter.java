@@ -20,6 +20,8 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+import io.realm.RealmList;
+
 /**
  * Created by ayo on 16.07.16.
  */
@@ -54,11 +56,16 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
 
         switch (holder.getItemViewType()){
             case TEXT:
                 presenter.setView((AddDeckItemView) holder);
+                int count = getItemCount() -2;
+                if(position == count) { //TODO no funciona
+                    holder.itemView.setVerticalScrollbarPosition(position);
+                    holder.itemView.setSelected(true);
+                }
                 break;
             case IMAGE:
                 presenter.loadPlaceHolder((AddDeckImageView) holder);
@@ -69,7 +76,7 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                         @Override
                         public void onClick(View view) {
                             itemCounts++;
-                            notifyDataSetChanged();
+                            notifyItemInserted(position+1);
                         }
                     });
                 }
@@ -78,26 +85,26 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public Deck getDeck(){
-//        Deck deck = new Deck();
-//        Cards cards;
-//        RealmList<Cards> cardsList = new RealmList<>();
-//
-//        //TODO En vez este loop puedo devolver directamente el array
-//
-//        for(int i = 0; i < itemCounts - 1; i++){
-//            if(getItemViewType(i) == TEXT) {
-//                cards = new Cards();
-//                cards.setText(presenter.getTextByPosition(i));
-//                cardsList.add(cards);
-//            }
-//        }
-//
-//        deck.setImage(R.drawable.cards_icon);
-//        deck.setNumberOfCards(String.valueOf(cardsList.size()));
-//        deck.setName(cardsList.get(0).getText()); //Add a field to introduce the name and the image
-//        deck.setCards(cardsList);
-//
-        return new Deck();
+        Deck deck = new Deck();
+        Cards cards;
+        RealmList<Cards> cardsList = new RealmList<>();
+
+        //TODO En vez de este loop puedo devolver directamente el array
+
+        for(int i = 0; i < itemCounts - 1; i++){
+            if(getItemViewType(i) == TEXT) {
+                cards = new Cards();
+                cards.setText(presenter.getTextByPosition(i));
+                cardsList.add(cards);
+            }
+        }
+
+        deck.setImage(R.drawable.cards_icon);
+        deck.setNumberOfCards(String.valueOf(cardsList.size()));
+        deck.setName(cardsList.get(0).getText()); //Add a field to introduce the name and the image
+        deck.setCards(cardsList);
+
+        return deck;
     }
 
     @Override

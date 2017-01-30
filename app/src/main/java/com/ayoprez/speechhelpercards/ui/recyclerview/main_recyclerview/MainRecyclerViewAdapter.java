@@ -13,6 +13,7 @@ import com.ayoprez.speechhelpercards.model.Deck;
 import com.ayoprez.speechhelpercards.ui.activity.HelperCardsActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -27,9 +28,9 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
     @Inject
     ItemPresenter presenter;
 
-    private ArrayList<Deck> deckList;
+    private List<Deck> deckList;
 
-    public MainRecyclerViewAdapter(ArrayList<Deck> deck){
+    public MainRecyclerViewAdapter(List<Deck> deck){
         this.deckList = deck;
     }
 
@@ -43,12 +44,20 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
     @Override
     public void onBindViewHolder(final MainRecyclerViewViewHolder holder, int position) {
         initAdapterComponents();
-        presenter.setView(holder);
+        presenter.setView(holder, position);
 
         holder.llItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openDeck(holder.getItemPosition());
+            }
+        });
+
+        holder.llItem.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                deleteDeck(holder.getItemPosition());
+                return true;
             }
         });
     }
@@ -68,4 +77,14 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
         context.startActivity(intent);
     }
 
+    private void deleteDeck(int position){
+        presenter.deleteItemById(deckList.get(position).getId());
+        refreshAdapter();
+    }
+
+    private void refreshAdapter() {
+        deckList.clear();
+        deckList = presenter.getDeckList();
+        notifyDataSetChanged();
+    }
 }

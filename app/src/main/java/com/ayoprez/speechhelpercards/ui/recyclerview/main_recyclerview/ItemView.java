@@ -10,6 +10,7 @@ public interface ItemView {
     void displayDeckName(String name);
     void displayDeckImage(int resource);
     void displayDeckNumberOfCards(String number);
+    void displayDeletedItemDialog();
 
     void showError();
 }

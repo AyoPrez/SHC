@@ -18,6 +18,7 @@ import com.ayoprez.speechhelpercards.ui.presenter.MainPresenter;
 import com.ayoprez.speechhelpercards.ui.recyclerview.main_recyclerview.MainRecyclerViewAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -77,20 +78,9 @@ public class MainActivity extends BaseActivity implements MainView {
     }
 
     @Override
-    public int getDeckId() {
-        //Return the id of the selected deck
-        return 0;
-    }
-
-    @Override
-    public void loadDeskRecyclerView(ArrayList<Deck> decksList) {
+    public void loadDeskRecyclerView(List<Deck> decksList) {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(new MainRecyclerViewAdapter(decksList));
-    }
-
-    @Override
-    public void showLoading() {
-        Log.i(TAG, "Loading...");
     }
 
     @Override

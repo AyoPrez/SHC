@@ -12,14 +12,6 @@ import java.util.ArrayList;
 public class MainPresenterImpl implements MainPresenter {
     private MainView mainView;
     private MainRepository repository;
-    private Deck deck;
-
-    //This presenter interact with the view and the model (interactor)
-    //The interactor will take the data from database
-    //The view will present the data
-
-    //The presenter and interactor should be POJO. Nothing from Android Java
-
 
     public MainPresenterImpl(MainRepository mainRepository){
         this.repository = mainRepository;
@@ -42,6 +34,5 @@ public class MainPresenterImpl implements MainPresenter {
     public void saveDeck(Deck deck) {
         repository.saveDeck(deck);
     }
-
 
 }

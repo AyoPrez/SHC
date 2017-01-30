@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="150dp">
 
     <EditText
         android:id="@+id/tV_addDeck"
@@ -10,5 +10,8 @@
         android:layout_height="match_parent"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:hint="@string/addDeck_hint"
-        android:layout_gravity="center_horizontal" />
+        android:gravity="top"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:inputType="textMultiLine"/>
 </LinearLayout>

@@ -1,37 +1,34 @@
 package com.ayoprez.speechhelpercards.model;
 
-import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Generated;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
- * Created by ayo on 23.07.16.
+ * Created by ayo on 30.11.16.
  */
-@Entity
-public class Cards{
 
-    @Id
+public class Cards extends RealmObject{
+
+    @PrimaryKey
+    private int id;
     private int cardsId;
     private String text;
 
 
-    @Generated(hash = 1012913999)
-    public Cards(int cardsId, String text) {
-        this.cardsId = cardsId;
-        this.text = text;
-    }
-
-    @Generated(hash = 1117066976)
-    public Cards() {
-    }
-
-
     public int getId() {
-        return cardsId;
+        return id;
     }
 
     public void setId(int id) {
-        this.cardsId = id;
+        this.id = id;
+    }
+
+    public int getCardsId() {
+        return cardsId;
+    }
+
+    public void setCardsId(int cardsId) {
+        this.cardsId = cardsId;
     }
 
     public String getText() {
@@ -40,13 +37,5 @@ public class Cards{
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public int getCardsId() {
-        return this.cardsId;
-    }
-
-    public void setCardsId(int cardsId) {
-        this.cardsId = cardsId;
     }
 }

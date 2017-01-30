@@ -48,7 +48,7 @@ public class AddDeckPresenterTest {
         presenter.setView(mockView);
         presenter.initRecyclerView();
 
-        verify(mockView, times(1)).loadAddDeskRecyclerView();
+        verify(mockView, times(1)).loadAddDeckRecyclerView();
     }
 
     @Test

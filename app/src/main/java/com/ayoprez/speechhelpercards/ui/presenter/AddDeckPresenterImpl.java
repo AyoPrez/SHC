@@ -30,7 +30,7 @@ public class AddDeckPresenterImpl implements AddDeckPresenter {
         if(view == null){
             throw new ViewNotFoundException();
         }
-        view.loadAddDeskRecyclerView();
+        view.loadAddDeckRecyclerView();
     }
 
     @Override

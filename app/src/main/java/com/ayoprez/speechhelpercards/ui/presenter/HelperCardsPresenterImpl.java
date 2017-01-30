@@ -27,7 +27,7 @@ public class HelperCardsPresenterImpl implements HelperCardsPresenter{
             throw  new ViewNotFoundException();
         }
 
-        helperCardsView.showText(mainRepository.getAllDeckCards(id));
+        helperCardsView.showText(mainRepository.getAllDeckCardsText(id));
     }
 
     @Override

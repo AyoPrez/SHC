@@ -4,13 +4,14 @@ import com.ayoprez.speechhelpercards.model.Deck;
 import com.ayoprez.speechhelpercards.repository.MainRepository;
 import com.ayoprez.speechhelpercards.ui.presenter.ViewNotFoundException;
 
+import java.util.List;
+
 /**
  * Created by ayo on 09.07.16.
  */
 public class ItemPresenterImpl implements ItemPresenter {
 
     protected ItemView view;
-    protected Deck deck;
     protected MainRepository repository;
 
     public ItemPresenterImpl(MainRepository mainRepository){
@@ -18,13 +19,14 @@ public class ItemPresenterImpl implements ItemPresenter {
     }
 
     @Override
-    public void setView(ItemView view) {
+    public void setView(ItemView view, int position) {
         this.view = view;
-        loadDeck();
+
+        loadDeck(getDeckList().get(position));
     }
 
     @Override
-    public void loadDeck() {
+    public void loadDeck(Deck deck) {
         //Consult database
         //OnSucess call show content
         //OnError call show error
@@ -32,8 +34,6 @@ public class ItemPresenterImpl implements ItemPresenter {
             throw new ViewNotFoundException();
         }
 
-        int deckPosition = view.getItemPosition();
-        deck = repository.getDeck(deckPosition);
         if(deck == null){
             view.showError();
         }else{
@@ -41,6 +41,17 @@ public class ItemPresenterImpl implements ItemPresenter {
             view.displayDeckImage(deck.getImage());
             view.displayDeckNumberOfCards(deck.getNumberOfCards());
         }
+    }
+
+    @Override
+    public void deleteItemById(int id) {
+        repository.deleteDeck(id);
+        view.displayDeletedItemDialog();
+    }
+
+    @Override
+    public List<Deck> getDeckList() {
+        return repository.getAllDecks();
     }
 
 }

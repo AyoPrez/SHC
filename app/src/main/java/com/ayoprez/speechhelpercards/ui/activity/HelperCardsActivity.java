@@ -10,6 +10,7 @@ import com.ayoprez.speechhelpercards.ui.presenter.HelperCardsPresenter;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -67,7 +68,7 @@ public class HelperCardsActivity extends BaseActivity implements HelperCardsView
     }
 
     @Override
-    public void showText(final ArrayList<String> textsList) {
+    public void showText(final List<String> textsList) {
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, textsList);
         flingAdapterView.setAdapter(adapter);
         flingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {

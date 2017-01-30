@@ -9,6 +9,8 @@ import java.util.ArrayList;
  */
 public interface AddDeckView {
 
-    void loadAddDeskRecyclerView();
+    void loadAddDeckRecyclerView();
     void showDeckSavedMessage();
+
+    void displayDeskNameDialog();
 }

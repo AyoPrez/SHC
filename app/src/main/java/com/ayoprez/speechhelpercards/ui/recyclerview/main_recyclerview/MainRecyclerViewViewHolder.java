@@ -1,13 +1,18 @@
 package com.ayoprez.speechhelpercards.ui.recyclerview.main_recyclerview;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ayoprez.speechhelpercards.R;
+import com.ayoprez.speechhelpercards.ui.Utils;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -45,12 +50,21 @@ public class MainRecyclerViewViewHolder extends RecyclerView.ViewHolder implemen
 
     @Override
     public void displayDeckImage(int resource) {
-        Picasso.with(context).load(resource).into(ivRecyclerItem);
+        if(resource != 0) {
+            Picasso.with(context).load(resource).into(ivRecyclerItem);
+        }else{
+            Log.e("LOG_TAG", "Resource was zero");
+        }
     }
 
     @Override
     public void displayDeckNumberOfCards(String number) {
         tvNumberRecyclerItem.setText(number);
+    }
+
+    @Override
+    public void displayDeletedItemDialog() {
+        Utils.showAlertDialog(context, "Item deleted", "You have deleted the deck sucessfully", "Ok");
     }
 
     @Override

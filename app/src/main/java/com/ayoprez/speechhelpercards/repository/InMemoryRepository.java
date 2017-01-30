@@ -53,7 +53,7 @@ public class InMemoryRepository implements MainRepository{
     }
 
     @Override
-    public ArrayList<String> getAllDeckCards(int deckId) {
+    public ArrayList<String> getAllDeckCardsText(int deckId) {
         return null;
     }
 }

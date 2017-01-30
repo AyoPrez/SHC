@@ -1,17 +1,24 @@
 package com.ayoprez.speechhelpercards.ui.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.ayoprez.speechhelpercards.R;
 import com.ayoprez.speechhelpercards.dependency_inyection.SHCApplication;
 import com.ayoprez.speechhelpercards.model.Deck;
+import com.ayoprez.speechhelpercards.ui.Utils;
 import com.ayoprez.speechhelpercards.ui.presenter.AddDeckPresenter;
 import com.ayoprez.speechhelpercards.ui.recyclerview.add_deck_recyclerview.AddDeckAdapter;
 
@@ -63,7 +70,7 @@ public class AddDeckActivity extends BaseActivity implements AddDeckView {
     }
 
     @Override
-    public void loadAddDeskRecyclerView() {
+    public void loadAddDeckRecyclerView() {
         addDeckAdapter = new AddDeckAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(addDeckAdapter);
@@ -71,7 +78,37 @@ public class AddDeckActivity extends BaseActivity implements AddDeckView {
 
     @Override
     public void showDeckSavedMessage() {
-        finish();
+        Utils.showAlertDialog(this, "Desk saved", "You have saved the desk succesfully", "Ok");
+        changeActivity(MainActivity.class);
+    }
+
+    @Override
+    public void displayDeskNameDialog() {
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        lp.setMargins(40, 0, 40, 0);
+
+        final EditText input = new EditText(this);
+        input.setTextColor(getResources().getColor(R.color.black));
+        input.setLayoutParams(lp);
+        input.setId(0);
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Deck deck = addDeckAdapter.getDeck();
+                        deck.setName(input.getText().toString());
+                        presenter.saveDeck(deck);
+                    }
+                })
+                .setTitle("Name of your deck")
+                .setMessage("Introduce a name for your deck")
+                .setView(input)
+                .create();
+
+        alertDialog.show();
     }
 
     @Override
@@ -87,7 +124,7 @@ public class AddDeckActivity extends BaseActivity implements AddDeckView {
                 changeActivity(MainActivity.class);
                 return true;
             case R.id.save_deck:
-                presenter.saveDeck(addDeckAdapter.getDeck());
+                displayDeskNameDialog();
                 return true;
         }
         return true;
