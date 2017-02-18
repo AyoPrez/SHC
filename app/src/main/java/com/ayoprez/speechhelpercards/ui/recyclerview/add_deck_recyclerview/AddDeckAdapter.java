@@ -2,10 +2,13 @@ package com.ayoprez.speechhelpercards.ui.recyclerview.add_deck_recyclerview;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableRow;
@@ -17,6 +20,7 @@ import com.ayoprez.speechhelpercards.model.Deck;
 import com.ayoprez.speechhelpercards.ui.activity.AddDeckActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -30,6 +34,8 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     protected Context context;
     protected int itemCounts = 2;
+
+    private List<String> textList = new ArrayList<>();
 
     private final int TEXT = 1, IMAGE = 0;
 
@@ -61,22 +67,22 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         switch (holder.getItemViewType()){
             case TEXT:
                 presenter.setView((AddDeckItemView) holder);
-                int count = getItemCount() -2;
-                if(position == count) { //TODO no funciona
-                    holder.itemView.setVerticalScrollbarPosition(position);
-                    holder.itemView.setSelected(true);
-                }
+                holder.itemView.findViewById(R.id.et_addDeck);
+
+                //TODO get somehow the text in all the edittexts of the recyclerview. It wouldn't be here. It would be after click button save
+
                 break;
             case IMAGE:
                 presenter.loadPlaceHolder((AddDeckImageView) holder);
 
-                LinearLayout placeholder = ((AddDeckImageViewHolder) holder).llPlaceholder;
+                final LinearLayout placeholder = ((AddDeckImageViewHolder) holder).llPlaceholder;
                 if (placeholder != null) {
                     placeholder.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             itemCounts++;
                             notifyItemInserted(position+1);
+                            //Add a way to jump to the new position after add it
                         }
                     });
                 }
@@ -89,12 +95,10 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         Cards cards;
         RealmList<Cards> cardsList = new RealmList<>();
 
-        //TODO En vez de este loop puedo devolver directamente el array
-
         for(int i = 0; i < itemCounts - 1; i++){
             if(getItemViewType(i) == TEXT) {
                 cards = new Cards();
-                cards.setText(presenter.getTextByPosition(i));
+                cards.setText(textList.get(i));
                 cardsList.add(cards);
             }
         }

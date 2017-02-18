@@ -10,4 +10,6 @@ public interface HelperCardsView {
 
     void showText(List<String> textsList);
 
+    void increaseTextSize();
+    void decreaseTextSize();
 }

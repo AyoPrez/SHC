@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 public class AddDeckViewHolder extends RecyclerView.ViewHolder implements AddDeckItemView {
     private static final String TAG = AddDeckViewHolder.class.getSimpleName();
 
-    @BindView(R.id.tV_addDeck)
+    @BindView(R.id.et_addDeck)
     EditText tvAddDeck;
 
     public AddDeckViewHolder(View itemView) {

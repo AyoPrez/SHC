@@ -3,6 +3,8 @@ package com.ayoprez.speechhelpercards.ui.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ayoprez.speechhelpercards.R;
 import com.ayoprez.speechhelpercards.dependency_inyection.SHCApplication;
@@ -42,6 +44,9 @@ public class HelperCardsActivity extends BaseActivity implements HelperCardsView
     @Inject
     HelperCardsPresenter helperCardsPresenter;
 
+    private TextView textView;
+    private int textSize;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +58,6 @@ public class HelperCardsActivity extends BaseActivity implements HelperCardsView
         if(extras != null){
             deckId = extras.getInt("id");
         }
-
     }
 
     @Override
@@ -69,8 +73,9 @@ public class HelperCardsActivity extends BaseActivity implements HelperCardsView
 
     @Override
     public void showText(final List<String> textsList) {
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, textsList);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item, textsList);
         flingAdapterView.setAdapter(adapter);
+
         flingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
             public void removeFirstObjectInAdapter() {
@@ -79,13 +84,15 @@ public class HelperCardsActivity extends BaseActivity implements HelperCardsView
             }
 
             @Override
-            public void onLeftCardExit(Object o) {
-
+            public void onLeftCardExit(Object dataObject) {
+                Toast.makeText(HelperCardsActivity.this, (String)dataObject, Toast.LENGTH_LONG).show();
+                adapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onRightCardExit(Object o) {
-
+            public void onRightCardExit(Object dataObject) {
+                Toast.makeText(HelperCardsActivity.this, (String)dataObject, Toast.LENGTH_LONG).show();
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -98,6 +105,28 @@ public class HelperCardsActivity extends BaseActivity implements HelperCardsView
 
             }
         });
+    }
+
+    @Override
+    public void increaseTextSize() {
+        textView = (TextView) flingAdapterView.getSelectedView().findViewById(R.id.cardText);
+        textSize = (int) textView.getTextSize();
+        if (textSize < 100) {
+            textView.setTextSize((textSize + 2) - (textSize / 2));
+        } else {
+            Toast.makeText(this, "Limit", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void decreaseTextSize() {
+        textView = (TextView) flingAdapterView.getSelectedView().findViewById(R.id.cardText);
+        textSize = (int) textView.getTextSize();
+        if (textSize > 25) {
+            textView.setTextSize((textSize - 2) - (textSize / 2));
+        } else {
+            Toast.makeText(this, "Limit", Toast.LENGTH_LONG).show();
+        }
     }
 
 }

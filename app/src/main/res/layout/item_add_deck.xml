@@ -5,7 +5,7 @@
     android:layout_height="150dp">
 
     <EditText
-        android:id="@+id/tV_addDeck"
+        android:id="@+id/et_addDeck"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textAppearance="?android:attr/textAppearanceMedium"

@@ -43,7 +43,12 @@ public class MainRepositoryImpl implements MainRepository {
 
         realmDeck.copyToRealmOrUpdate(deck);
         realmDeck.commitTransaction();
+
+        List<Deck> deeck = realmDeck.where(Deck.class).equalTo("id", id).findAll();
+
         realmDeck.close();
+
+
     }
 
     private void saveCards(final ArrayList<Cards> cards){

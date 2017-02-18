@@ -32,11 +32,11 @@ public class HelperCardsPresenterImpl implements HelperCardsPresenter{
 
     @Override
     public void pushedMoreButton() {
-
+        helperCardsView.increaseTextSize();
     }
 
     @Override
     public void pushedLessButton() {
-
+        helperCardsView.decreaseTextSize();
     }
 }

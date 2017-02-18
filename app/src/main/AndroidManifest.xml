@@ -26,6 +26,7 @@
             android:label="@string/app_name"/>
         <activity
             android:name=".ui.activity.HelperCardsActivity"
+            android:screenOrientation="landscape"
             android:label="@string/app_name"/>
         <!--<activity-->
             <!--android:name=".CardsActivity"-->

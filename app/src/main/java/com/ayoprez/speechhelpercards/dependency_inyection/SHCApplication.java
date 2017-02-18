@@ -3,7 +3,6 @@ package com.ayoprez.speechhelpercards.dependency_inyection;
 import android.app.Application;
 
 import com.ayoprez.speechhelpercards.R;
-import com.facebook.stetho.Stetho;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -20,8 +19,6 @@ public class SHCApplication extends Application {
         super.onCreate();
         initAppComponents();
         initRealm();
-
-        Stetho.initializeWithDefaults(this);
     }
 
     public AppComponent getAppComponent() {
