@@ -67,8 +67,8 @@ public class AppModule {
 
     @Provides
     @Singleton
-    public AddDeckItemPresenter provideAddDeckItemAdapterPresenter(){
-        return new AddDeckItemPresenterImpl();
+    public AddDeckItemPresenter provideAddDeckItemAdapterPresenter(MainRepository mainRepository){
+        return new AddDeckItemPresenterImpl(mainRepository);
     }
 
     @Provides

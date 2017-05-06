@@ -14,6 +14,7 @@ public interface MainRepository {
     void saveDeck(Deck deck);
     List<Deck> getAllDecks();
     void deleteDeck(int id);
+    int getCardId();
 
     List<String> getAllDeckCardsText(int deckId);
 }

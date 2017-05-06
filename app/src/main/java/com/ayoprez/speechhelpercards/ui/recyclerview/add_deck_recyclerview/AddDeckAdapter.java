@@ -116,10 +116,12 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         for(int i = 0; i < itemCounts - 1; i++){
             if(getItemViewType(i) == TEXT) {
-                cards = new Cards();
-                cards.setId(i);
-                cards.setText(textList.get(i));
-                cardsList.add(cards);
+                if(!"".equals(textList.get(i))) {
+                    cards = new Cards();
+                    cards.setId(presenter.getCardId()+i);
+                    cards.setText(textList.get(i));
+                    cardsList.add(cards);
+                }
             }
         }
 

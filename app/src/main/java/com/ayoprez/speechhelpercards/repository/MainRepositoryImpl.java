@@ -82,6 +82,11 @@ public class MainRepositoryImpl implements MainRepository {
     }
 
     @Override
+    public int getCardId() {
+        return (int) ((long)(deckRealm.where(Cards.class).max("id")) + 1);
+    }
+
+    @Override
     public List<String> getAllDeckCardsText(int deckId) {
         Deck deck = getDeck(deckId);
 

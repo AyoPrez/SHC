@@ -11,4 +11,5 @@ public interface AddDeckItemPresenter {
     String getTextByPosition(int position);
 
     int getTotalCards();
+    int getCardId();
 }

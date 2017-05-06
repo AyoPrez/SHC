@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by ayo on 02.07.16.
  */
-public class InMemoryRepository implements MainRepository{
+public class InMemoryRepository implements MainRepository {
     private static final String TAG = InMemoryRepository.class.getSimpleName();
 
     private Deck deck;
@@ -50,6 +50,11 @@ public class InMemoryRepository implements MainRepository{
     @Override
     public void deleteDeck(int id) {
         deck = null;
+    }
+
+    @Override
+    public int getCardId() {
+        return 1;
     }
 
     @Override
