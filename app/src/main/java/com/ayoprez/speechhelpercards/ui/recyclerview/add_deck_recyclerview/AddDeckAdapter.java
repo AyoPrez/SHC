@@ -32,12 +32,12 @@ import io.realm.RealmList;
 public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final String TAG = AddDeckAdapter.class.getSimpleName();
 
+    private int itemCounts = 2;
     protected Context context;
-    protected int itemCounts = 2;
+    protected String text;
+    protected List<String> textList = new ArrayList<>();
 
-    private List<String> textList = new ArrayList<>();
-
-    private final int TEXT = 1, IMAGE = 0;
+    public static final int TEXT = 1, IMAGE = 0;
 
     @Inject
     AddDeckItemPresenter presenter;
@@ -64,12 +64,29 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
 
+
+
         switch (holder.getItemViewType()){
             case TEXT:
                 presenter.setView((AddDeckItemView) holder);
-                holder.itemView.findViewById(R.id.et_addDeck);
+                EditText editText = (EditText) holder.itemView.findViewById(R.id.et_addDeck);
 
-                //TODO get somehow the text in all the edittexts of the recyclerview. It wouldn't be here. It would be after click button save
+                editText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable string) {
+                        text = string.toString();
+                    }
+                });
 
                 break;
             case IMAGE:
@@ -81,7 +98,8 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                         @Override
                         public void onClick(View view) {
                             itemCounts++;
-                            notifyItemInserted(position+1);
+                            notifyItemInserted(position + 1);
+                            addTextToList();
                             //Add a way to jump to the new position after add it
                         }
                     });
@@ -91,6 +109,7 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public Deck getDeck(){
+        addTextToList();
         Deck deck = new Deck();
         Cards cards;
         RealmList<Cards> cardsList = new RealmList<>();
@@ -98,6 +117,7 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         for(int i = 0; i < itemCounts - 1; i++){
             if(getItemViewType(i) == TEXT) {
                 cards = new Cards();
+                cards.setId(i);
                 cards.setText(textList.get(i));
                 cardsList.add(cards);
             }
@@ -109,6 +129,11 @@ public class AddDeckAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         deck.setCards(cardsList);
 
         return deck;
+    }
+
+    private void addTextToList(){
+        textList.add(text);
+        text = "";
     }
 
     @Override

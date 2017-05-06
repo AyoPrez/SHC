@@ -41,6 +41,7 @@ public class AddDeckViewHolder extends RecyclerView.ViewHolder implements AddDec
 
     @Override
     public String getText(final int position){
+
         return tvAddDeck.getText().toString();
     }
 }

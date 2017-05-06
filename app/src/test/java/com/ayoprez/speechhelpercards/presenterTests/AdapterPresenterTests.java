@@ -47,7 +47,7 @@ public class AdapterPresenterTests {
     public void shouldBeAbleToLoadTheDeckFromTheRepositoryWhenValidDeckIsPresent(){
         when(mockView.getItemPosition()).thenReturn(1);
 
-        presenter.setView(mockView);
+        presenter.setView(mockView, anyInt());
 
         verify(mockRepository, times(1)).getDeck(anyInt());
 
@@ -64,7 +64,7 @@ public class AdapterPresenterTests {
 
         when(mockRepository.getDeck(anyInt())).thenReturn(null);
 
-        presenter.setView(mockView);
+        presenter.setView(mockView, anyInt());
 
         verify(mockRepository, times(1)).getDeck(anyInt());
 
@@ -77,7 +77,7 @@ public class AdapterPresenterTests {
 
     @Test
     public void shouldLoadDeckDetailsWhenTheViewIsSet(){
-        presenter.setView(mockView);
+        presenter.setView(mockView, anyInt());
 
         verify(mockRepository, times(1)).getDeck(anyInt());
         verify(mockView, times(1)).displayDeckName(anyString());
@@ -87,8 +87,8 @@ public class AdapterPresenterTests {
 
     @Test(expected = ViewNotFoundException.class)
     public void shouldThrowViewNotFoundExceptionWhenViewIsNull(){
-        presenter.setView(null);
+        presenter.setView(null, 0);
 
-        presenter.loadDeck();
+        presenter.loadDeck(deck);
     }
 }

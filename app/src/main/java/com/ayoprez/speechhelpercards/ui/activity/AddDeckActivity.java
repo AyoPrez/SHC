@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 
 import com.ayoprez.speechhelpercards.R;
 import com.ayoprez.speechhelpercards.dependency_inyection.SHCApplication;
+import com.ayoprez.speechhelpercards.model.Cards;
 import com.ayoprez.speechhelpercards.model.Deck;
 import com.ayoprez.speechhelpercards.ui.Utils;
 import com.ayoprez.speechhelpercards.ui.presenter.AddDeckPresenter;
@@ -26,6 +27,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.RealmList;
 
 /**
  * Created by ayo on 16.07.16.

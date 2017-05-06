@@ -36,7 +36,7 @@ public class MainRepositoryImpl implements MainRepository {
         if(realmDeck.where(Deck.class).max("id") == null){
             id = 1;
         }else{
-            id =  (int) ((long)(realmDeck.where(Deck.class).max("id")) + 1);
+            id = (int) ((long)(realmDeck.where(Deck.class).max("id")) + 1);
         }
 
         deck.setId(id);
@@ -44,11 +44,7 @@ public class MainRepositoryImpl implements MainRepository {
         realmDeck.copyToRealmOrUpdate(deck);
         realmDeck.commitTransaction();
 
-        List<Deck> deeck = realmDeck.where(Deck.class).equalTo("id", id).findAll();
-
         realmDeck.close();
-
-
     }
 
     private void saveCards(final ArrayList<Cards> cards){
