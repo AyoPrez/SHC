@@ -11,5 +11,6 @@ public interface HelperCardsPresenter {
     void loadCardsTexts(int id);
     void pushedMoreButton();
     void pushedLessButton();
+    void goBackToLastCard();
 
 }

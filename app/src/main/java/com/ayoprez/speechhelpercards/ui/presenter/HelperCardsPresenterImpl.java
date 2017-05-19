@@ -39,4 +39,9 @@ public class HelperCardsPresenterImpl implements HelperCardsPresenter{
     public void pushedLessButton() {
         helperCardsView.decreaseTextSize();
     }
+
+    @Override
+    public void goBackToLastCard() {
+        helperCardsView.seeLastCard();
+    }
 }

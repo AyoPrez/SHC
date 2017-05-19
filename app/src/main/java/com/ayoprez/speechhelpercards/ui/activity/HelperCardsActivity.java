@@ -2,6 +2,8 @@ package com.ayoprez.speechhelpercards.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,11 +43,16 @@ public class HelperCardsActivity extends BaseActivity implements HelperCardsView
         helperCardsPresenter.pushedLessButton();
     }
 
+    @OnClick(R.id.backToLastCardButton)
+    void pressBAckToLastCardButton(){
+        helperCardsPresenter.goBackToLastCard();
+    }
+
     @Inject
     HelperCardsPresenter helperCardsPresenter;
 
     private TextView textView;
-    private int textSize;
+    private int textSize = 15;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,48 +92,69 @@ public class HelperCardsActivity extends BaseActivity implements HelperCardsView
 
             @Override
             public void onLeftCardExit(Object dataObject) {
-                Toast.makeText(HelperCardsActivity.this, (String)dataObject, Toast.LENGTH_LONG).show();
                 adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                Toast.makeText(HelperCardsActivity.this, (String)dataObject, Toast.LENGTH_LONG).show();
                 adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onAdapterAboutToEmpty(int i) {
-
+                fixTextSize();
             }
 
             @Override
             public void onScroll(float v) {
-
             }
         });
+    }
+
+    private void fixTextSize(){
+        View view = flingAdapterView.getSelectedView();
+
+        if(view != null) {
+            textView = (TextView) view.findViewById(R.id.cardText);
+
+            textView.setTextSize(textSize);
+        }
     }
 
     @Override
     public void increaseTextSize() {
         textView = (TextView) flingAdapterView.getSelectedView().findViewById(R.id.cardText);
-        textSize = (int) textView.getTextSize();
-        if (textSize < 100) {
-            textView.setTextSize((textSize + 2) - (textSize / 2));
-        } else {
-            Toast.makeText(this, "Limit", Toast.LENGTH_LONG).show();
-        }
+
+//        if (textSize >= 15 && textSize < 100) {
+            textSize = textSize + 3;
+            textView.setTextSize(textSize);
+//        } else {
+//            Toast.makeText(this, "Limit " +  textSize, Toast.LENGTH_LONG).show();
+//        }
     }
 
     @Override
     public void decreaseTextSize() {
         textView = (TextView) flingAdapterView.getSelectedView().findViewById(R.id.cardText);
-        textSize = (int) textView.getTextSize();
-        if (textSize > 25) {
-            textView.setTextSize((textSize - 2) - (textSize / 2));
-        } else {
-            Toast.makeText(this, "Limit", Toast.LENGTH_LONG).show();
+
+//        if (textSize >= 12 && textSize < 100) {
+            textSize = textSize - 3;
+            textView.setTextSize(textSize);
+//        } else {
+//            Toast.makeText(this, "Limit " + textSize, Toast.LENGTH_LONG).show();
+//        }
+    }
+
+    @Override
+    public void seeLastCard() {
+        View view = flingAdapterView.getSelectedView();
+
+        if(view != null){
+            textView = (TextView) view.findViewById(R.id.cardText);
+
+            textView.setText("Halaaaaaa");
         }
+
     }
 
 }

@@ -12,4 +12,5 @@ public interface HelperCardsView {
 
     void increaseTextSize();
     void decreaseTextSize();
+    void seeLastCard();
 }

@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <ImageButton
-            android:id="@+id/backToLastCard"
+            android:id="@+id/backToLastCardButton"
             android:layout_alignParentTop="true"
             android:layout_margin="@dimen/buttons_margin"
             android:src="@drawable/ic_reply_black_36dp"
